@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="content-1">
+    <div class="title">
+      <h2>Agora cadastre produto.</h2>
+    </div>
+    <div class="com">
+      <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button> |
+      <button type="button" class="btn btn-warning" (click)="alterar()">Recomeçar</button> |
+      <button type="button" class="btn btn-danger" (click)="remover()">Apagar</button>
+    </div>
+  </div>
+
+  <div class="box">
+    <form action="">
+      <fieldset>
+        <legend><b>Cadastro de Produto</b></legend><br><br>
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" [(ngModel)]="obj.nome" required>
+          <label for="nome" class="lableInput">Nome Produto</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="categoria" id="categoria" class="inputUser" [(ngModel)]="obj.categoria" required>
+          <label for="categoria" class="lableInput">Categoria</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="serial" id="serial" class="inputUser" [(ngModel)]="obj.serial" required>
+          <label for="serial" class="lableInput">Serial</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="tipo" id="tipo" class="inputUser" [(ngModel)]="obj.tipo" required>
+          <label for="tipo" class="lableInput">Tipo</label>
+        </div><br>
+        <div class="inputBox">
+          <label for="dataI">Data de Inclusao: </label>
+          <input type="date" name="dataI" id="dataI" class="dataN" required>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="preco" id="preco" class="inputUser" [(ngModel)]="obj.preco" required>
+          <label for="preco" class="lableInput">Preço</label>
+        </div><br>
+        <input type="submit" name="submit" id="submit" class="btn-submit">
+      </fieldset>
+    </form>
+  </div>
+
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <th scope="col">Codigo</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cpf</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Email</th>
+        <tr *ngFor="let p of lista">
+          <td>{{p.id}}</td>
+          <td>{{p.nome}}</td>
+          <td>{{p.serial}}</td>
+          <td>{{p.categoria}}</td>
+          <td>{{p.preco}}</td>
+          <td><button type="button" class="btn btn-secodary" (click)="carregarDados(p)">Carregar</button></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>

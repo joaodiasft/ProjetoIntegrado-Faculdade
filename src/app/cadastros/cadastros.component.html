@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Cadastos</title>
+</head>
+
+<body>
+  <div class="content-1">
+    <div class="title">
+      <h2>Agora conclua seu cadastro</h2>
+    </div>
+    <div class="com">
+      <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button> |
+      <button type="button" class="btn btn-warning" (click)="alterar()">Recomeçar</button> |
+      <button type="button" class="btn btn-danger" (click)="remover()">Apagar</button>
+    </div>
+  </div>
+  <div class="alert alert-primary" role="alert">{{mens}}</div>
+  <div class="box">
+    <form action="">
+      <fieldset>
+        <legend><b>Cadastro de Cliente</b></legend><br><br>
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" [(ngModel)]="obj.nome" required>
+          <label for="nome" class="lableInput">Nome Completo</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="cpfCnpj" id="cpfCnpj" class="inputUser" [(ngModel)]="obj.cpfCnpj" required>
+          <label for="cpfCnpj" class="lableInput">Seu Cpf</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="tel" name="tele" id="tele" class="inputUser" [(ngModel)]="obj.telefone" required>
+          <label for="tele" class="lableInput">Telefone</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="email" id="email" class="inputUser" [(ngModel)]="obj.email" required>
+          <label for="email" class="lableInput">Seu Email</label>
+        </div><br>
+        <p>Sexo: </p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Masculino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2">Feminino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+          <label class="form-check-label" for="inlineRadio3">Não Declarar</label>
+        </div><br><br>
+        <div class="inputBox">
+          <label for="dataN">Data de Nascimento: </label>
+          <input type="date" name="dataN" id="dataN" class="dataN" required>
+        </div><br>
+        <P>Endereço:</P>
+        <div class="inputBox">
+          <input type="text" name="logradouro" id="logradouro" class="inputUser" [(ngModel)]="obj.logradouro" required>
+          <label for="Logradouro" class="lableInput">Logradouro</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="numero" id="numero" class="inputUser" [(ngModel)]="obj.numero" required>
+          <label for="Numero" class="lableInput">Numero</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="bairro" id="bairro" class="inputUser" [(ngModel)]="obj.bairro" required>
+          <label for="bairro" class="lableInput">Bairro</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="cidade" id="cidade" class="inputUser" [(ngModel)]="obj.cidade" required>
+          <label for="cidade" class="lableInput">Cidade</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="estado" id="estado" class="inputUser" [(ngModel)]="obj.estado" required>
+          <label for="estado" class="lableInput">Estado</label>
+        </div><br>
+        <div class="inputBox">
+          <input type="text" name="cep" id="cep" class="inputUser" [(ngModel)]="obj.cep" required>
+          <label for="cep" class="lableInput">Cep</label>
+        </div><br>
+        <input type="submit" name="submit" id="submit" class="btn-submit">
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <th scope="col">Codigo</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cpf</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Email</th>
+        <tr *ngFor="let p of lista">
+          <td>{{p.id}}</td>
+          <td>{{p.nome}}</td>
+          <td>{{p.cpfCnpj}}</td>
+          <td>{{p.telefone}}</td>
+          <td>{{p.email}}</td>
+          <td><button type="button" class="btn btn-secodary" (click)="carregarDados(p)">Carregar</button></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>
